@@ -1,6 +1,10 @@
 package com.company;
 
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,7 +35,7 @@ public class Main {
         return false;
     }
 
-//hasDuplicate == hasDuplicate2 == hasDuplicate3
+    //hasDuplicate == hasDuplicate2 == hasDuplicate3
     public static void main(String[] args) {
 	    int[] array= {1, 2, 3, 5, 465, 2, 8, 6, 8};
         System.out.println(hasDuplicates(array));
@@ -42,5 +46,26 @@ public class Main {
         StringBuilder sb= new StringBuilder(s1);
         String reversed = sb.reverse().toString();
         System.out.println(reversed);
+
+        Student jhony = new Student("John", LocalDate.of(2000, Month.MAY,17), 85);
+        Student paul = new Student("Paul", LocalDate.of(1999, Month.JULY,1), 90);
+        Student kolya = new Student("Kolya", LocalDate.of(2002, Month.APRIL,6), 70);
+        Student sasha = new Student("Sasha", LocalDate.of(2005, Month.NOVEMBER,24), 29);
+        Student tom = new Student("Tom", LocalDate.of(2001, Month.JANUARY,2), 10);
+
+        List<Student> students= new ArrayList<>();
+        students.add(jhony);
+        students.add(paul);
+        students.add(kolya);
+        students.add(sasha);
+        students.add(tom);
+//        for (Student student:students) {
+//            //if(student.getMarkJava()<50) System.out.println(student.getName());
+//            if(student.getBirthday().getYear()>2000) System.out.println(student.getName());
+//        }
+        students.stream().filter(student -> student.getMarkJava()>50)
+                .forEach(System.out::println);
+        System.out.println(students.stream().filter(el -> el.getMarkJava() > 80).count());
+        System.out.println(students.stream().min(Comparator.comparing(student -> student.getName())));
     }
 }
