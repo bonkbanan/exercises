@@ -21,10 +21,15 @@ public class Main {
         return (Arrays.stream(array).boxed().distinct()
                 .count() != array.length);
     }
-
+//hasDuplicate == hasDuplicate2
     public static void main(String[] args) {
 	    int[] array= {1, 2, 3, 5, 465, 2, 8, 6, 8};
         System.out.println(hasDuplicates(array));
         System.out.println(hasDuplicates2(array));
+
+        String s1 = "Hello World";
+        StringBuilder sb= new StringBuilder(s1);
+        String reversed = sb.reverse().toString();
+        System.out.println(reversed);
     }
 }
