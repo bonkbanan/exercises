@@ -5,16 +5,16 @@ package com.company;/*
 @TIME: 13:40
 */
 
-public class FullTimeEmployee {
+public class FullTimeEmployee implements IAccounting {
     private String name;
-    private String experience;
+    private Integer experience;
     private Integer rate;
     private String speciality;
 
     public FullTimeEmployee() {
     }
 
-    public FullTimeEmployee(String name, String experience, Integer rate, String speciality) {
+    public FullTimeEmployee(String name, Integer experience, Integer rate, String speciality) {
         this.name = name;
         this.experience = experience;
         this.rate = rate;
@@ -29,11 +29,11 @@ public class FullTimeEmployee {
         this.name = name;
     }
 
-    public String getExperience() {
+    public Integer getExperience() {
         return experience;
     }
 
-    public void setExperience(String experience) {
+    public void setExperience(Integer experience) {
         this.experience = experience;
     }
 
@@ -61,5 +61,10 @@ public class FullTimeEmployee {
                 ", rate=" + rate +
                 ", speciality='" + speciality + '\'' +
                 '}';
+    }
+
+    @Override
+    public int getSalary() {
+        return this.getRate() * 22 * 8;
     }
 }

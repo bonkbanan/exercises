@@ -5,15 +5,15 @@ package com.company;/*
 @TIME: 13:44
 */
 
-public class PartTimeEmployee {
+public class PartTimeEmployee implements IAccounting{
     private String name;
-    private String rate;
+    private Integer rate;
     private Integer hours;
 
     public PartTimeEmployee() {
     }
 
-    public PartTimeEmployee(String name, String rate, Integer hours) {
+    public PartTimeEmployee(String name, Integer rate, Integer hours) {
         this.name = name;
         this.rate = rate;
         this.hours = hours;
@@ -27,11 +27,11 @@ public class PartTimeEmployee {
         this.name = name;
     }
 
-    public String getRate() {
+    public Integer getRate() {
         return rate;
     }
 
-    public void setRate(String rate) {
+    public void setRate(Integer rate) {
         this.rate = rate;
     }
 
@@ -50,5 +50,10 @@ public class PartTimeEmployee {
                 ", rate='" + rate + '\'' +
                 ", hours=" + hours +
                 '}';
+    }
+
+    @Override
+    public int getSalary() {
+        return (this.getHours() * this.getRate());
     }
 }

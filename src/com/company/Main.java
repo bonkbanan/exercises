@@ -73,5 +73,12 @@ public class Main {
         System.out.println(students.stream().mapToInt(student -> student.getMarkJava()).average().getAsDouble());
         System.out.println(students.stream().count());
 
-    }
+        PartTimeEmployee ivan = new PartTimeEmployee("Ivan",15,80);
+        FullTimeEmployee vasya = new FullTimeEmployee("Vasya",2,15,"coder");
+        List<IAccounting> workers = new ArrayList<>();
+        workers.add(ivan);
+        workers.add(vasya);
+        System.out.println(workers);
+
+    }// пиво на разлив и бутилка.(вартість літра + бутилка) 2 класа через интерфейс в список
 }
