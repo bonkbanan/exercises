@@ -66,6 +66,12 @@ public class Main {
         students.stream().filter(student -> student.getMarkJava()>50)
                 .forEach(System.out::println);
         System.out.println(students.stream().filter(el -> el.getMarkJava() > 80).count());
-        System.out.println(students.stream().min(Comparator.comparing(student -> student.getName())));
+        System.out.println(students.stream().max(Comparator.comparing(student -> student.getMarkJava())));
+        System.out.println(students.stream().mapToInt(student -> student.getMarkJava()).max().getAsInt());
+        System.out.println(students.stream().mapToInt(student -> student.getMarkJava()).min().getAsInt());
+        System.out.println(students.stream().mapToInt(student -> student.getMarkJava()).sum());
+        System.out.println(students.stream().mapToInt(student -> student.getMarkJava()).average().getAsDouble());
+        System.out.println(students.stream().count());
+
     }
 }
